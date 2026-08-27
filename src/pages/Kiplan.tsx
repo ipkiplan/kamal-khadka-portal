@@ -57,9 +57,10 @@ export function Kiplan() {
 
           <DestinationCard
             title="KIPLANLaw"
-            description="Full-service legal practice covering corporate law, intellectual property, family law, property law, and litigation in Kathmandu, Nepal."
-            linkLabel="Explore KIPLANLaw"
-            href="/kiplan/kiplanlaw"
+            description="A legal and professional services practice providing guidance across areas such as corporate and business law, intellectual property, family law, property, immigration, and dispute resolution. It is the legal-services arm of the KIPLAN ecosystem, supporting individuals and organizations with informed, practical legal guidance."
+            linkLabel="Read more"
+            href="https://kiplan.com.np/"
+            external
           />
 
           <DestinationCard
