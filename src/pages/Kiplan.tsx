@@ -51,17 +51,15 @@ export function Kiplan() {
           <DestinationCard
             title="KIPLANScholar"
             description="A dedicated platform for scholarships, study opportunities, and educational guidance for Nepali students seeking to study abroad."
-            linkLabel="Visit KIPLANScholar"
-            href="https://kiplanscholar.com"
-            external
+            linkLabel="Explore KIPLANScholar"
+            href="/kiplan/kiplanscholar"
           />
 
           <DestinationCard
             title="KIPLANLaw"
             description="Full-service legal practice covering corporate law, intellectual property, family law, property law, and litigation in Kathmandu, Nepal."
-            linkLabel="Visit KIPLANLaw"
-            href="https://kiplan.com.np"
-            external
+            linkLabel="Explore KIPLANLaw"
+            href="/kiplan/kiplanlaw"
           />
 
           <DestinationCard
