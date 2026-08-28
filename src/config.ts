@@ -626,14 +626,14 @@ export const contactFormConfig: ContactFormConfig = {
     {
       icon: "MapPin",
       label: "Office Address",
-      value: "KIPLAN, CTC Mall, Sundhara, Kathmandu",
+      value: "Civil Trade Centre (CTC) Mall, 4th Floor, Sundhara, Kathmandu, Nepal",
       subtext: "Visit us during office hours",
     },
     {
       icon: "Phone",
       label: "Phone Numbers",
       value: "+977 1 5312040 (Work)",
-      subtext: "+977 9849 530970 | +977 9851444500 (Mobile)",
+      subtext: "+977 9849 530970 (Mobile)",
     },
     {
       icon: "Mail",
@@ -657,7 +657,7 @@ export const contactFormConfig: ContactFormConfig = {
     phonePlaceholder: "Enter your phone number",
     visitDateLabel: "Preferred Consultation Date",
     visitorsLabel: "Service Type",
-    visitorsOptions: ["Legal Consultation", "Notary Services", "Company Registration", "IP Protection", "Other"],
+    visitorsOptions: ["Legal Consultation", "Notary Services", "IP Protection", "Visual Aid, Application"],
     messageLabel: "Your Message",
     messagePlaceholder: "Describe your legal requirements...",
     submitText: "Send Message",
@@ -693,34 +693,38 @@ export interface FooterContactItem {
   text: string;
 }
 
+export interface EcosystemLink {
+  name: string;
+  href: string;
+  external: boolean;
+}
+
 export interface FooterConfig {
   brandName: string;
   tagline: string;
   description: string;
   socialLinks: SocialLink[];
   linkGroups: FooterLinkGroup[];
+  contactHeading: string;
   contactItems: FooterContactItem[];
-  newsletterLabel: string;
-  newsletterPlaceholder: string;
-  newsletterButtonText: string;
-  newsletterSuccessText: string;
-  newsletterErrorText: string;
-  newsletterEndpoint: string;
+  ecosystemLinks: EcosystemLink[];
   copyrightText: string;
   legalLinks: string[];
   icpText: string;
   backToTopText: string;
-  ageVerificationText: string;
+  developerAttribution: string;
 }
 
 export const footerConfig: FooterConfig = {
   brandName: "Kamal Khadka",
   tagline: "Legal Excellence Since 1993",
-  description: "Experienced Advocate, Notary Public, and Arbitrator providing comprehensive legal services in Kathmandu, Nepal. Committed to justice, accessibility, and ethical practice.",
+  description: "Advocate, Notary Public and AI Practitioner",
   socialLinks: [
     { icon: "Facebook", label: "Facebook", href: "#" },
     { icon: "Twitter", label: "Twitter", href: "#" },
-    { icon: "Instagram", label: "LinkedIn", href: "#" },
+    { icon: "Youtube", label: "YouTube", href: "#" },
+    { icon: "Linkedin", label: "LinkedIn", href: "#" },
+    { icon: "Instagram", label: "Instagram", href: "#" },
   ],
   linkGroups: [
     {
@@ -738,28 +742,29 @@ export const footerConfig: FooterConfig = {
       links: [
         { name: "Legal Services", href: "/services" },
         { name: "Notary Services", href: "/services" },
-        { name: "Company Registration", href: "/services" },
         { name: "IP Protection", href: "/services" },
         { name: "Arbitration", href: "/services" },
+        { name: "Digital / Technology Initiatives", href: "/services/digital-technology" },
       ],
     },
   ],
+  contactHeading: "Office Address",
   contactItems: [
-    { icon: "MapPin", text: "KIPLAN, CTC Mall, Sundhara, Kathmandu" },
+    { icon: "MapPin", text: "Civil Trade Centre (CTC) Mall, Sundhara, Kathmandu, Nepal" },
     { icon: "Phone", text: "+977 1 5312040 | +977 9849 530970" },
     { icon: "Mail", text: "kbkamal@gmail.com" },
   ],
-  newsletterLabel: "Subscribe to Legal Updates",
-  newsletterPlaceholder: "Enter your email address",
-  newsletterButtonText: "Subscribe",
-  newsletterSuccessText: "Thank you for subscribing! You'll receive our latest legal updates.",
-  newsletterErrorText: "Sorry, there was an error. Please try again.",
-  newsletterEndpoint: "https://formspree.io/f/xnqevjdr",
+  ecosystemLinks: [
+    { name: "KIPLAN", href: "/kiplan", external: false },
+    { name: "KIPLANScholar", href: "https://kiplanscholar.com/", external: true },
+    { name: "KIPLANLaw", href: "https://kiplan.com.np/", external: true },
+    { name: "KIPLANNotary", href: "/kiplan/kiplannotary", external: false },
+  ],
   copyrightText: "© 2024 Kamal Khadka. All rights reserved.",
   legalLinks: ["Privacy Policy", "Terms of Use", "Disclaimer"],
   icpText: "Kathmandu IP Law & Associates Nepal (KIPLAN)",
   backToTopText: "Back to Top",
-  ageVerificationText: "",
+  developerAttribution: "Developed by KIPLAN Digi Tech",
 };
 
 // -----------------------------------------------------------------------------

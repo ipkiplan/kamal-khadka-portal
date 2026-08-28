@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { Send, CheckCircle, AlertCircle, MapPin, Phone, Mail, Clock } from 'lucide-react';
 import { contactFormConfig } from '../config';
+import { DatePicker } from '../components/DatePicker';
 
 // Icon lookup map for dynamic icon resolution from config strings
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
@@ -223,14 +224,12 @@ export function ContactForm() {
                       <label htmlFor="contact-date" className="block text-sm text-white/80 mb-2">
                         {form.visitDateLabel} <span className="text-gold-500">*</span>
                       </label>
-                      <input
+                      <DatePicker
                         id="contact-date"
-                        type="date"
                         name="visitDate"
                         value={formData.visitDate}
-                        onChange={handleChange}
+                        onChange={(value) => setFormData((prev) => ({ ...prev, visitDate: value }))}
                         required
-                        className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-sm text-white focus:outline-none focus:border-gold-500 transition-colors"
                       />
                     </div>
                   </div>

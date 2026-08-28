@@ -3,7 +3,6 @@ import { WineShowcase } from '../sections/WineShowcase';
 import { WineryCarousel } from '../sections/WineryCarousel';
 import { Museum } from '../sections/Museum';
 import { News } from '../sections/News';
-import { ContactForm } from '../sections/ContactForm';
 
 interface HomeProps {
   isReady: boolean;
@@ -19,7 +18,6 @@ export function Home({ isReady }: HomeProps) {
       <WineryCarousel />
       <Museum />
       <News />
-      <ContactForm />
     </>
   );
 }

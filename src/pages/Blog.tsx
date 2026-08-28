@@ -1,11 +1,5 @@
-import { PagePlaceholder } from './PagePlaceholder';
+import { BlogResources } from '../sections/BlogResources';
 
 export function Blog() {
-  return (
-    <PagePlaceholder
-      scriptText="Latest Articles"
-      subtitle="LEGAL INSIGHTS"
-      title="Blog & Resources"
-    />
-  );
+  return <BlogResources />;
 }

@@ -1,48 +1,18 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Wine, MapPin, Phone, Mail, Instagram, Facebook, Twitter, Youtube, ArrowUp, CheckCircle } from 'lucide-react';
+import { Wine, MapPin, Phone, Mail, Instagram, Facebook, Twitter, Youtube, Linkedin, ArrowUp } from 'lucide-react';
 import { footerConfig } from '../config';
 
 // Icon lookup map for dynamic icon resolution from config strings
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
-  Wine, MapPin, Phone, Mail, Instagram, Facebook, Twitter, Youtube, ArrowUp,
+  Wine, MapPin, Phone, Mail, Instagram, Facebook, Twitter, Youtube, Linkedin, ArrowUp,
 };
 
 export function Footer() {
   // Null check: if config is empty, render nothing
   if (!footerConfig.brandName) return null;
 
-  const [newsletterEmail, setNewsletterEmail] = useState('');
-  const [newsletterStatus, setNewsletterStatus] = useState<'idle' | 'success' | 'error'>('idle');
-
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  const handleNewsletter = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!newsletterEmail) return;
-
-    try {
-      const response = await fetch(footerConfig.newsletterEndpoint, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email: newsletterEmail,
-        }),
-      });
-
-      if (response.ok) {
-        setNewsletterStatus('success');
-        setNewsletterEmail('');
-      } else {
-        setNewsletterStatus('error');
-      }
-    } catch {
-      setNewsletterStatus('error');
-    }
-
-    setTimeout(() => setNewsletterStatus('idle'), 4000);
   };
 
   return (
@@ -86,6 +56,35 @@ export function Footer() {
                 </div>
               </nav>
             )}
+
+            {/* KIPLAN Ecosystem */}
+            {footerConfig.ecosystemLinks.length > 0 && (
+              <nav aria-label="KIPLAN ecosystem" className="mt-6">
+                <div className="flex flex-wrap gap-x-4 gap-y-2">
+                  {footerConfig.ecosystemLinks.map((eco) =>
+                    eco.external ? (
+                      <a
+                        key={eco.name}
+                        href={eco.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-white/60 text-xs hover:text-gold-400 transition-colors"
+                      >
+                        {eco.name}
+                      </a>
+                    ) : (
+                      <Link
+                        key={eco.name}
+                        to={eco.href}
+                        className="text-white/60 text-xs hover:text-gold-400 transition-colors"
+                      >
+                        {eco.name}
+                      </Link>
+                    )
+                  )}
+                </div>
+              </nav>
+            )}
           </div>
 
           {/* Link Groups */}
@@ -111,7 +110,7 @@ export function Footer() {
           <div>
             {footerConfig.contactItems.length > 0 && (
               <>
-                <h3 className="font-serif text-lg text-white mb-5">{footerConfig.linkGroups.length > 0 ? footerConfig.linkGroups[footerConfig.linkGroups.length - 1]?.title : ''}</h3>
+                <h3 className="font-serif text-lg text-white mb-5">{footerConfig.contactHeading}</h3>
                 <ul className="space-y-4">
                   {footerConfig.contactItems.map((item, index) => {
                     const IconComponent = iconMap[item.icon];
@@ -125,42 +124,6 @@ export function Footer() {
                 </ul>
               </>
             )}
-
-            {/* Newsletter */}
-            {footerConfig.newsletterLabel && (
-              <div className="mt-6 pt-6 border-t border-white/10">
-                <p className="text-white/70 text-sm mb-3">{footerConfig.newsletterLabel}</p>
-                {newsletterStatus === 'success' ? (
-                  <div className="flex items-center gap-2 text-green-400 text-sm">
-                    <CheckCircle className="w-4 h-4" />
-                    <span>{footerConfig.newsletterSuccessText}</span>
-                  </div>
-                ) : (
-                  <form onSubmit={handleNewsletter} className="flex gap-2">
-                    <label htmlFor="newsletter-email" className="sr-only">{footerConfig.newsletterLabel}</label>
-                    <input
-                      id="newsletter-email"
-                      type="email"
-                      value={newsletterEmail}
-                      onChange={(e) => setNewsletterEmail(e.target.value)}
-                      placeholder={footerConfig.newsletterPlaceholder}
-                      required
-                      autoComplete="email"
-                      className="flex-1 px-3 py-2 bg-white/5 border border-white/20 rounded-sm text-white text-sm placeholder-white/40 focus:outline-none focus:border-gold-500 transition-colors"
-                    />
-                    <button
-                      type="submit"
-                      className="px-4 py-2 bg-gold-500 text-white text-sm rounded-sm hover:bg-gold-600 transition-colors"
-                    >
-                      {footerConfig.newsletterButtonText}
-                    </button>
-                  </form>
-                )}
-                {newsletterStatus === 'error' && (
-                  <p className="text-red-400 text-xs mt-2">{footerConfig.newsletterErrorText}</p>
-                )}
-              </div>
-            )}
           </div>
         </div>
       </div>
@@ -170,7 +133,7 @@ export function Footer() {
         <div className="container-custom py-6 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex flex-wrap items-center justify-center gap-4 text-white/50 text-xs">
             {footerConfig.copyrightText && (
-              <span>&copy; {new Date().getFullYear()} {footerConfig.copyrightText}</span>
+              <span>{footerConfig.copyrightText}</span>
             )}
             {footerConfig.legalLinks.map((link, index) => (
               <span key={index}>
@@ -182,6 +145,12 @@ export function Footer() {
               <>
                 <span className="hidden md:inline">|</span>
                 <span>{footerConfig.icpText}</span>
+              </>
+            )}
+            {footerConfig.developerAttribution && (
+              <>
+                <span className="hidden md:inline">|</span>
+                <span className="text-white/35">{footerConfig.developerAttribution}</span>
               </>
             )}
           </div>
@@ -202,16 +171,6 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Age Verification Note */}
-      {footerConfig.ageVerificationText && (
-        <div className="bg-wine-900 py-3">
-          <div className="container-custom">
-            <p className="text-center text-white/50 text-xs">
-              {footerConfig.ageVerificationText}
-            </p>
-          </div>
-        </div>
-      )}
     </footer>
   );
 }
