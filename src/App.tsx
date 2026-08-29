@@ -16,6 +16,9 @@ import { KiplanScholar } from './pages/KiplanScholar';
 import { KiplanLaw } from './pages/KiplanLaw';
 import { Blog } from './pages/Blog';
 import { Contact } from './pages/Contact';
+import { PrivacyPolicy } from './pages/PrivacyPolicy';
+import { TermsOfUse } from './pages/TermsOfUse';
+import { Disclaimer } from './pages/Disclaimer';
 
 // Resets scroll position to the top whenever the route changes, so
 // navigating between pages doesn't leave the viewport mid-scroll from
@@ -59,6 +62,9 @@ function App() {
             <Route path="/kiplan/kiplanlaw" element={<KiplanLaw />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="/terms-of-use" element={<TermsOfUse />} />
+            <Route path="/disclaimer" element={<Disclaimer />} />
           </Routes>
         </main>
 

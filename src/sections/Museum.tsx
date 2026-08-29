@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
-import { History, Award, BookOpen } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { History, Award, BookOpen, ArrowRight } from 'lucide-react';
 import { museumConfig } from '../config';
 
 // Icon lookup map for dynamic icon resolution from config strings
@@ -201,16 +202,14 @@ export function Museum() {
                     {museumConfig.openingHours && <p className="text-white text-lg">{museumConfig.openingHours}</p>}
                   </div>
                   {museumConfig.ctaButtonText && (
-                    <button
-                      onClick={() => {
-                        const element = document.querySelector('#contact');
-                        if (element) element.scrollIntoView({ behavior: 'smooth' });
-                      }}
-                      className="btn-primary rounded-sm text-sm px-6"
+                    <Link
+                      to="/about"
+                      className="btn-primary rounded-sm text-sm px-6 inline-flex items-center gap-2 group"
                       aria-label={museumConfig.ctaButtonText}
                     >
                       {museumConfig.ctaButtonText}
-                    </button>
+                      <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                    </Link>
                   )}
                 </div>
               </div>

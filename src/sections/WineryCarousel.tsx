@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
-import { ChevronLeft, ChevronRight, MapPin } from 'lucide-react';
-import { wineryCarouselConfig, navigationConfig } from '../config';
+import { Link } from 'react-router-dom';
+import { ChevronLeft, ChevronRight, MapPin, ArrowRight } from 'lucide-react';
+import { wineryCarouselConfig } from '../config';
 
 export function WineryCarousel() {
   // Null check: if config is empty, render nothing
@@ -172,12 +173,14 @@ export function WineryCarousel() {
                   </p>
 
                   {/* Area Stats */}
-                  <div className="flex items-baseline gap-2 mb-6">
-                    <span className="font-serif text-5xl lg:text-6xl text-gold-500">
-                      {slide.area}
-                    </span>
-                    <span className="text-white/70 text-lg">{slide.unit}</span>
-                  </div>
+                  {slide.area && (
+                    <div className="flex items-baseline gap-2 mb-6">
+                      <span className="font-serif text-5xl lg:text-6xl text-gold-500">
+                        {slide.area}
+                      </span>
+                      <span className="text-white/70 text-lg">{slide.unit}</span>
+                    </div>
+                  )}
 
                   {/* Description */}
                   <p className="text-white/75 leading-relaxed mb-8">
@@ -185,17 +188,15 @@ export function WineryCarousel() {
                   </p>
 
                   {/* CTA */}
-                  {navigationConfig.ctaButtonText && (
-                    <button
-                      onClick={() => {
-                        const element = document.querySelector('#contact');
-                        if (element) element.scrollIntoView({ behavior: 'smooth' });
-                      }}
-                      className="btn-dark rounded-sm"
-                      aria-label={navigationConfig.ctaButtonText}
+                  {slide.ctaText && (
+                    <Link
+                      to={slide.ctaHref}
+                      className="btn-dark rounded-sm inline-flex items-center gap-2 group"
+                      aria-label={slide.ctaText}
                     >
-                      {navigationConfig.ctaButtonText}
-                    </button>
+                      {slide.ctaText}
+                      <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
+                    </Link>
                   )}
                 </div>
               ))}

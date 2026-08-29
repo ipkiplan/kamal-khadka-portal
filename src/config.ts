@@ -109,6 +109,7 @@ export interface HeroStat {
 export interface HeroConfig {
   scriptText: string;
   mainTitle: string;
+  professionalIdentity: string;
   ctaButtonText: string;
   ctaTarget: string;
   stats: HeroStat[];
@@ -117,16 +118,17 @@ export interface HeroConfig {
 }
 
 export const heroConfig: HeroConfig = {
-  scriptText: "Justice Served",
+  scriptText: "Professional Practice · Innovation",
   mainTitle: "Kamal Khadka",
-  ctaButtonText: "Contact Me",
-  ctaTarget: "#contact",
+  professionalIdentity: "ADVOCATE · NOTARY PUBLIC · AI PRACTITIONER",
+  ctaButtonText: "Explore My Work",
+  ctaTarget: "#wines",
   stats: [
-    { value: 30, suffix: "+", label: "Years Experience" },
-    { value: 500, suffix: "+", label: "Cases Handled" },
-    { value: 100, suffix: "%", label: "Commitment" },
+    { value: 20, suffix: "+", label: "Years of HR Professional Experience" },
+    { value: 13, suffix: "+", label: "Years of Notarial Experience" },
+    { value: 11, suffix: "+", label: "Years with KIPLAN" },
   ],
-  decorativeText: "Advocate · Notary · Arbitrator",
+  decorativeText: "Advocate · Notary Public · AI Practitioner",
   backgroundImage: "/images/hero-portrait.jpg",
 };
 
@@ -143,9 +145,9 @@ export interface Wine {
   glowColor: string;
   description: string;
   tastingNotes: string;
-  alcohol: string;
-  temperature: string;
-  aging: string;
+  ctaText: string;
+  ctaHref: string;
+  ctaExternal: boolean;
 }
 
 export interface WineFeature {
@@ -172,91 +174,70 @@ export interface WineShowcaseConfig {
 export const wineShowcaseConfig: WineShowcaseConfig = {
   scriptText: "What I Offer",
   subtitle: "COMPREHENSIVE LEGAL SOLUTIONS",
-  mainTitle: "Legal Services",
+  mainTitle: "Professional Services",
   wines: [
     {
-      id: "legal",
-      name: "Legal Services",
-      subtitle: "Civil & Criminal Litigation",
-      year: "1993",
-      image: "/images/portfolio-1.jpg",
-      filter: "",
-      glowColor: "bg-blue-900/20",
-      description: "Expert representation in civil and criminal matters, including family law, property disputes, and corporate litigation with over three decades of courtroom experience.",
-      tastingNotes: "Family Law, Corporate Law, IP Protection",
-      alcohol: "Success Rate",
-      temperature: "Client Focus",
-      aging: "Since 1993",
+      id: "hr",
+      name: "HR & Development",
+      subtitle: "Human Resources & International Development",
+      year: "",
+      image: "/images/portfolio-2.jpg",
+      filter: "brightness(1.1) hue-rotate(-10deg)",
+      glowColor: "bg-emerald-900/20",
+      description: "My early professional career developed in Human Resources, an experience that shaped my understanding of people, organizations and professional development. After completing my bachelor's degree in law, I initially tried to pursue law and HR in parallel before choosing HR as my primary professional path. I later pursued professional HR education in Australia through the Federal Government of Australia. After returning to Nepal in 2010, I continued my work in the international development sector. In 2012–2013, I served as Technical Advisor/National HR Officer supporting the Ministry of Health and Population, working with both public and private employers. I helped organize workshops that brought different employers and stakeholders together to discuss human-resource challenges and needs. I also contributed to the development of a Country Profile, Human Resources for Health (HRH) Strategy and Workforce Plan. That experience continues to influence my interest in education, opportunity and human development, including through KIPLANScholar, which seeks to help Nepali students and other opportunity seekers find pathways for education, research and professional growth.",
+      tastingNotes: "",
+      ctaText: "Explore KIPLANScholar",
+      ctaHref: "https://kiplanscholar.com/",
+      ctaExternal: true,
     },
     {
       id: "notary",
       name: "Notary Services",
       subtitle: "Attestation & Certification",
-      year: "2007",
+      year: "",
       image: "/images/portfolio-4.jpg",
       filter: "brightness(1.15) sepia(0.2)",
       glowColor: "bg-amber-600/20",
-      description: "Authorized notary public services including document attestation, certified translations, power of attorney, affidavits, and MOFA legalization for international use.",
-      tastingNotes: "Power of Attorney, Affidavits, Translations",
-      alcohol: "Authorized",
-      temperature: "MOFA Legalized",
-      aging: "Since 2007",
+      description: "Notarial practice has become an important part of my professional life and continues to be an area in which accuracy, responsibility and public trust matter greatly. My notarial experience spans more than a decade and has involved supporting individuals, businesses and professionals with document-related needs. Notarial work often sits at an important point where documents, identity, transactions and formal procedures come together. For that reason, careful examination and responsible handling of documents are essential. I aim to provide services in a practical and professional manner while helping people understand what is required of them. My experience in law also provides a useful foundation for understanding the legal context surrounding many notarial matters. At the same time, I recognize that clients often value clarity and convenience as much as technical accuracy. The Notary Services page provides more information about the services and the ways in which I can assist.",
+      tastingNotes: "",
+      ctaText: "Explore Notary Services",
+      ctaHref: "/services/notary",
+      ctaExternal: false,
     },
     {
-      id: "corporate",
-      name: "Corporate Services",
-      subtitle: "Company Registration & Compliance",
-      year: "2014",
-      image: "/images/portfolio-2.jpg",
-      filter: "brightness(1.1) hue-rotate(-10deg)",
-      glowColor: "bg-emerald-900/20",
-      description: "Complete corporate solutions including company registration (public/private), contract drafting, regulatory compliance, board meeting management, and shareholder services.",
-      tastingNotes: "Company Reg, Contracts, Compliance",
-      alcohol: "Full Service",
-      temperature: "KIPLAN",
-      aging: "Since 2014",
+      id: "legal",
+      name: "Legal Services",
+      subtitle: "Civil & Professional Practice",
+      year: "",
+      image: "/images/portfolio-1.jpg",
+      filter: "",
+      glowColor: "bg-blue-900/20",
+      description: "Law remains an important foundation of my professional practice and continues to shape the way I approach professional problems and decisions. Legal issues can arise in personal matters, business activities, property transactions, intellectual property and disputes. People and organizations often need more than a formal legal answer; they need to understand what their options are and what those options may mean in practice. My approach is therefore to provide practical legal guidance that helps clients make informed decisions. Experience across different professional environments has also taught me to look at legal questions in their wider human and organizational context. Where appropriate, legal advice should help prevent problems as well as respond to them after they arise. Good legal practice is not only about resolving problems; it is about helping people understand their rights, responsibilities and choices. The detailed Legal Services page provides further information about the areas of practice and the support available.",
+      tastingNotes: "\u201cGood legal practice is not only about resolving problems; it is about helping people understand their rights, responsibilities and choices.\u201d",
+      ctaText: "Explore Legal Services",
+      ctaHref: "/services",
+      ctaExternal: false,
     },
     {
-      id: "ip",
-      name: "IP Law",
-      subtitle: "Trademark & Patent Protection",
-      year: "2014",
+      id: "ai",
+      name: "AI Practice",
+      subtitle: "Digital Technology & Innovation",
+      year: "",
       image: "/images/portfolio-3.jpg",
       filter: "brightness(1.2) hue-rotate(20deg)",
       glowColor: "bg-purple-900/20",
-      description: "Intellectual property protection services including trademark registration, copyright protection, patent applications, and IP litigation to safeguard your innovations.",
-      tastingNotes: "Trademarks, Copyrights, Patents",
-      alcohol: "Protected",
-      temperature: "IP Focused",
-      aging: "KIPLAN Era",
+      description: "My professional interests are increasingly moving toward artificial intelligence, digital technology, education and practical innovation. I am interested not simply in learning about technology, but in understanding how it can become useful in professional and everyday life. Contemporary technology is already available to most people through devices such as mobile phones, computers and online services. The real opportunity is to help people understand what these tools can do and how they can use them confidently and responsibly. I am particularly interested in bringing AI into professional practice rather than treating it only as an abstract or technical subject. Different people will need different approaches, whether they are students, researchers, professionals, entrepreneurs or ordinary users seeking greater convenience and capability. This emerging work will gradually include practical projects, AI classes, training, workshops, videos, podcasts and other forms of knowledge sharing. My broader aim is to help people make practical use of contemporary technology so that it supports learning, work, creativity, productivity and meaningful human opportunity.",
+      tastingNotes: "",
+      ctaText: "Explore Digital & Technology",
+      ctaHref: "/services/digital-technology",
+      ctaExternal: false,
     },
   ],
-  features: [
-    {
-      icon: "Wine",
-      title: "Expert Representation",
-      description: "Licensed to practice in all Nepali courts including the Supreme Court",
-    },
-    {
-      icon: "Thermometer",
-      title: "Certified Notary",
-      description: "Authorized for translations, attestations, and certifications since 2007",
-    },
-    {
-      icon: "Clock",
-      title: "30+ Years Experience",
-      description: "Decades of combined expertise in law and human resources management",
-    },
-    {
-      icon: "Sparkles",
-      title: "Arbitration Services",
-      description: "Qualified arbitrator for alternative dispute resolution since 2024",
-    },
-  ],
+  features: [],
   quote: {
-    text: "Justice will not be served until those who are unaffected are as outraged as those who are.",
-    attribution: "Benjamin Franklin",
-    prefix: "Philosophy",
+    text: "",
+    attribution: "",
+    prefix: "",
   },
 };
 
@@ -270,6 +251,8 @@ export interface CarouselSlide {
   area: string;
   unit: string;
   description: string;
+  ctaText: string;
+  ctaHref: string;
 }
 
 export interface WineryCarouselConfig {
@@ -281,34 +264,40 @@ export interface WineryCarouselConfig {
 }
 
 export const wineryCarouselConfig: WineryCarouselConfig = {
-  scriptText: "Areas of Practice",
-  subtitle: "SPECIALIZED EXPERTISE",
-  mainTitle: "Practice Areas",
+  scriptText: "Years of Practice",
+  subtitle: "LEGAL EXPERIENCE",
+  mainTitle: "Legal Practice",
   locationTag: "Kathmandu, Nepal",
   slides: [
     {
       image: "/images/portfolio-1.jpg",
-      title: "Civil Litigation",
-      subtitle: "Property & Inheritance Disputes",
-      area: "500+",
-      unit: "Cases Resolved",
-      description: "Successfully resolved numerous property disputes, inheritance cases, and civil matters for clients across Bagmati Province with favorable outcomes.",
+      title: "Civil Litigation & Dispute Resolution",
+      subtitle: "Practical Resolution & Representation",
+      area: "",
+      unit: "",
+      description: "Disagreements can arise between individuals, businesses, organizations and other parties for many different reasons. Not every dispute needs to proceed immediately to a courtroom, and early understanding of the issues can sometimes help parties find a practical solution. Where litigation becomes necessary, careful preparation and effective legal representation are essential. Civil disputes may involve contracts, property, business relationships, personal matters or other legal rights and obligations. My approach is to help clients understand the nature of the dispute, the available options and the possible consequences of each course of action. The objective is to pursue a practical and responsible resolution while protecting the client's legal interests.",
+      ctaText: "Explore Legal Services",
+      ctaHref: "/services",
     },
     {
       image: "/images/portfolio-2.jpg",
-      title: "Corporate Law",
-      subtitle: "Company Registration & Governance",
-      area: "200+",
-      unit: "Companies Registered",
-      description: "Facilitated company registrations, managed corporate governance, and ensured regulatory compliance for businesses of all sizes.",
+      title: "Corporate & Business Law",
+      subtitle: "Governance, Contracts & Compliance",
+      area: "",
+      unit: "",
+      description: "Corporate and business matters form an important part of legal practice, from establishing an enterprise to managing its continuing legal responsibilities. Businesses regularly encounter questions involving governance, contracts, compliance, transactions and relationships with others. Practical legal guidance can help owners and organizations understand their obligations and make informed decisions. The objective is not simply to complete a legal procedure, but to help clients understand the legal consequences of important business decisions. Sound legal advice can also help identify and address potential problems before they become disputes. My approach is to provide practical guidance that supports responsible and informed business decisions.",
+      ctaText: "Explore Legal Services",
+      ctaHref: "/services",
     },
     {
       image: "/images/portfolio-3.jpg",
       title: "Intellectual Property",
-      subtitle: "Trademark & Copyright Protection",
-      area: "300+",
-      unit: "IP Registrations",
-      description: "Protected intellectual property rights through trademark registrations, copyright filings, and patent applications for innovators and businesses.",
+      subtitle: "Protecting Ideas & Innovation",
+      area: "",
+      unit: "",
+      description: "Ideas, brands, creative works and innovations can represent significant personal and commercial value. Intellectual property law helps individuals and organizations understand how those assets may be protected and used. Businesses increasingly need to consider intellectual property when developing brands, creating content, building products or introducing new ideas. Appropriate legal guidance can help identify what may be protectable and what steps may be appropriate to safeguard those interests. It can also help people understand the importance of respecting the intellectual property rights of others. My aim is to provide practical guidance so that valuable ideas and creative work can be developed and protected with greater confidence.",
+      ctaText: "Explore Legal Services",
+      ctaHref: "/services",
     },
   ],
 };
@@ -359,25 +348,22 @@ export interface MuseumConfig {
 }
 
 export const museumConfig: MuseumConfig = {
-  scriptText: "My Story",
+  scriptText: "My Journey",
   subtitle: "ABOUT ME",
-  mainTitle: "Professional Journey",
-  introText: "Kamal Khadka is a seasoned legal professional with over 30 years of combined experience in law and human resources. As Managing Director of Kathmandu IP Law & Associates Nepal (KIPLAN), he provides reliable legal advocacy, notarization, and corporate services in Kathmandu and beyond.",
+  mainTitle: "My Journey",
+  introText: "My journey began with a law degree and an Advocate licence in 1993, but my professional path soon expanded beyond legal practice. I began my career in Human Resources and later worked with INGOs and international organizations in different professional capacities. My HR career took me to Australia for further professional education, and after returning to Nepal I continued working in the international development sector. In 2012\u20132013, I contributed to national Human Resources for Health work while supporting the Ministry of Health and Population. The 2015 earthquake further changed my perspective on professional purpose and community service. I later returned to law and notarial practice, bringing with me experience from HR, international development and organizational work. Today, my journey is evolving again toward artificial intelligence, digital technology, education and practical innovation.",
   timeline: [
-    { year: "1989", event: "Started LL.B. at Tribhuvan University" },
-    { year: "1993", event: "Obtained Advocate License No. 4039" },
-    { year: "2007", event: "Became Notary Public License No. 170" },
-    { year: "2009", event: "Completed MA in HRM from Australia" },
-    { year: "2014", event: "Founded KIPLAN" },
-    { year: "2022", event: "Completed LLM from National College" },
-    { year: "2024", event: "Qualified as Arbitrator" },
+    { year: "1993", event: "Advocate Licence" },
+    { year: "2010", event: "Returned to Nepal" },
+    { year: "2012", event: "Liverpool Associates (Tropical Health)" },
+    { year: "2013", event: "National HR Contribution" },
   ],
   tabs: [
     {
       id: "credentials",
       name: "Credentials",
       icon: "Award",
-      image: "/images/about-portrait.jpg",
+      image: "/images/journey-portrait.png",
       content: {
         title: "Professional Licenses & Certifications",
         description: "Advocate License No. 4039/1993 (eligible for practice in all Nepali courts including Supreme Court). Notary Public License No. 170/2007 (authorized for translations, attestations, and certifications). Completed Arbitrator course in April 2024.",
@@ -388,7 +374,7 @@ export const museumConfig: MuseumConfig = {
       id: "education",
       name: "Education",
       icon: "BookOpen",
-      image: "/images/blog-2.jpg",
+      image: "/images/journey-portrait.png",
       content: {
         title: "Academic Excellence",
         description: "LLM from National College, Lalitpur (2019-2022). MA in Human Resource Management from University of Canberra, Australia (2008-2009). LL.B. from Tribhuvan University, Kathmandu (1989-1992).",
@@ -399,7 +385,7 @@ export const museumConfig: MuseumConfig = {
       id: "experience",
       name: "Experience",
       icon: "History",
-      image: "/images/blog-1.jpg",
+      image: "/images/journey-portrait.png",
       content: {
         title: "Three Decades of Expertise",
         description: "Managing Director at KIPLAN since August 2014. Previously held HR advisory roles at Liverpool Associates in Tropical Health (LATH) and United Mission to Nepal (UMN), facilitating strategic HR plans and workforce projections.",
@@ -409,16 +395,16 @@ export const museumConfig: MuseumConfig = {
   ],
   openingHours: "Sunday - Friday: 9:00 AM - 6:00 PM",
   openingHoursLabel: "Office Hours",
-  ctaButtonText: "Learn More",
+  ctaButtonText: "Read My Journey",
   yearBadge: "1993",
-  yearBadgeLabel: "Licensed Since",
+  yearBadgeLabel: "Advocate Licence",
   quote: {
     prefix: "Philosophy",
     text: "Driven by a passion for justice and community service, I am committed to providing ethical representation and accessible legal solutions for all.",
     attribution: "Kamal Khadka",
   },
   founderPhotoAlt: "Kamal Khadka - Advocate and Notary Public",
-  founderPhoto: "/images/hero-portrait.jpg",
+  founderPhoto: "/images/journey-portrait.png",
 };
 
 // -----------------------------------------------------------------------------
@@ -699,6 +685,11 @@ export interface EcosystemLink {
   external: boolean;
 }
 
+export interface LegalLink {
+  name: string;
+  href: string;
+}
+
 export interface FooterConfig {
   brandName: string;
   tagline: string;
@@ -709,7 +700,7 @@ export interface FooterConfig {
   contactItems: FooterContactItem[];
   ecosystemLinks: EcosystemLink[];
   copyrightText: string;
-  legalLinks: string[];
+  legalLinks: LegalLink[];
   icpText: string;
   backToTopText: string;
   developerAttribution: string;
@@ -761,7 +752,11 @@ export const footerConfig: FooterConfig = {
     { name: "KIPLANNotary", href: "/kiplan/kiplannotary", external: false },
   ],
   copyrightText: "© 2024 Kamal Khadka. All rights reserved.",
-  legalLinks: ["Privacy Policy", "Terms of Use", "Disclaimer"],
+  legalLinks: [
+    { name: "Privacy Policy", href: "/privacy-policy" },
+    { name: "Terms of Use", href: "/terms-of-use" },
+    { name: "Disclaimer", href: "/disclaimer" },
+  ],
   icpText: "Kathmandu IP Law & Associates Nepal (KIPLAN)",
   backToTopText: "Back to Top",
   developerAttribution: "Developed by KIPLAN Digi Tech",

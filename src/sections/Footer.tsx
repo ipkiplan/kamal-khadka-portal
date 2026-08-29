@@ -135,10 +135,10 @@ export function Footer() {
             {footerConfig.copyrightText && (
               <span>{footerConfig.copyrightText}</span>
             )}
-            {footerConfig.legalLinks.map((link, index) => (
-              <span key={index}>
+            {footerConfig.legalLinks.map((link) => (
+              <span key={link.name}>
                 <span className="hidden md:inline">|</span>
-                <button className="hover:text-gold-400 transition-colors ml-2 md:ml-0">{link}</button>
+                <Link to={link.href} className="hover:text-gold-400 transition-colors ml-2 md:ml-0">{link.name}</Link>
               </span>
             ))}
             {footerConfig.icpText && (

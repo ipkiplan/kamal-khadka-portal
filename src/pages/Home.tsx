@@ -2,7 +2,6 @@ import { Hero } from '../sections/Hero';
 import { WineShowcase } from '../sections/WineShowcase';
 import { WineryCarousel } from '../sections/WineryCarousel';
 import { Museum } from '../sections/Museum';
-import { News } from '../sections/News';
 
 interface HomeProps {
   isReady: boolean;
@@ -17,7 +16,6 @@ export function Home({ isReady }: HomeProps) {
       <WineShowcase />
       <WineryCarousel />
       <Museum />
-      <News />
     </>
   );
 }

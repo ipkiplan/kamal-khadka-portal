@@ -89,6 +89,15 @@ export function Hero({ isReady }: { isReady: boolean }) {
           {heroConfig.mainTitle}
         </h1>
 
+        {/* Professional Identity */}
+        {heroConfig.professionalIdentity && (
+          <div className={`mt-4 transition-all duration-1000 ease-out ${phase >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`} style={{ transitionDelay: '0.4s' }}>
+            <span className="text-gold-500 text-xs md:text-sm uppercase tracking-[0.2em]">
+              {heroConfig.professionalIdentity}
+            </span>
+          </div>
+        )}
+
         {/* CTA */}
         {heroConfig.ctaButtonText && (
           <div className={`mt-10 transition-all duration-700 ease-out ${phase >= 3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`}>
