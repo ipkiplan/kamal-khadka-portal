@@ -652,7 +652,7 @@ export const contactFormConfig: ContactFormConfig = {
     errorMessage: "Sorry, there was an error sending your message. Please try again or contact me directly by phone.",
   },
   privacyNotice: "Your information is kept strictly confidential and will only be used to respond to your inquiry.",
-  formEndpoint: "https://formspree.io/f/xnqevjdr",
+  formEndpoint: "https://formspree.io/f/xzebzgpz",
 };
 
 // -----------------------------------------------------------------------------

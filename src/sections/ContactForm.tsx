@@ -49,7 +49,10 @@ export function ContactForm() {
     try {
       const response = await fetch(contactFormConfig.formEndpoint, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
         body: JSON.stringify({
           name: formData.name,
           email: formData.email,
@@ -64,9 +67,18 @@ export function ContactForm() {
         setStatus('success');
         setFormData({ name: '', email: '', phone: '', visitDate: '', visitors: '2', message: '' });
       } else {
+        // Surface Formspree's actual error reason in the console for
+        // diagnosis, without changing the user-facing message/UI.
+        try {
+          const errorBody = await response.json();
+          console.error('Formspree submission failed:', response.status, errorBody);
+        } catch {
+          console.error('Formspree submission failed:', response.status, '(no JSON error body)');
+        }
         setStatus('error');
       }
-    } catch {
+    } catch (err) {
+      console.error('Contact form network/fetch error:', err);
       setStatus('error');
     }
 

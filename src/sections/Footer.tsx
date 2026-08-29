@@ -117,7 +117,13 @@ export function Footer() {
                     return (
                       <li key={index} className="flex items-start gap-3">
                         {IconComponent && <IconComponent className="w-4 h-4 text-gold-500 mt-0.5 flex-shrink-0" aria-hidden="true" />}
-                        <span className="text-white/70 text-sm">{item.text}</span>
+                        {item.icon === 'Mail' ? (
+                          <a href={`mailto:${item.text}`} className="text-white/70 text-sm hover:text-gold-400 transition-colors">
+                            {item.text}
+                          </a>
+                        ) : (
+                          <span className="text-white/70 text-sm">{item.text}</span>
+                        )}
                       </li>
                     );
                   })}
