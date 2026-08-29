@@ -1,3 +1,5 @@
+import { useSEO } from '../hooks/useSEO';
+
 interface LegalSection {
   title: string;
   body: React.ReactNode;
@@ -13,6 +15,10 @@ function LegalCard({ title, body }: LegalSection) {
 }
 
 export function Disclaimer() {
+  useSEO({
+    title: 'Disclaimer | Kamal Khadka',
+    description: "Important clarifications regarding the information published on Kamal Khadka's professional portal.",
+  });
   const sections: LegalSection[] = [
     {
       title: 'General Information, Not Legal or Notarial Advice',

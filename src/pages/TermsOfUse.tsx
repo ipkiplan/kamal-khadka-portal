@@ -1,3 +1,5 @@
+import { useSEO } from '../hooks/useSEO';
+
 interface LegalSection {
   title: string;
   body: React.ReactNode;
@@ -13,6 +15,10 @@ function LegalCard({ title, body }: LegalSection) {
 }
 
 export function TermsOfUse() {
+  useSEO({
+    title: 'Terms of Use | Kamal Khadka',
+    description: "These Terms of Use explain the terms governing use of Kamal Khadka's professional portal.",
+  });
   const sections: LegalSection[] = [
     {
       title: '1. About This Website',

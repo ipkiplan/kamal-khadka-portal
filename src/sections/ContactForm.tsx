@@ -17,7 +17,7 @@ export function ContactForm() {
     email: '',
     phone: '',
     visitDate: '',
-    visitors: '2',
+    visitors: '',
     message: ''
   });
   const [status, setStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -65,7 +65,7 @@ export function ContactForm() {
 
       if (response.ok) {
         setStatus('success');
-        setFormData({ name: '', email: '', phone: '', visitDate: '', visitors: '2', message: '' });
+        setFormData({ name: '', email: '', phone: '', visitDate: '', visitors: '', message: '' });
       } else {
         // Surface Formspree's actual error reason in the console for
         // diagnosis, without changing the user-facing message/UI.
@@ -175,7 +175,7 @@ export function ContactForm() {
                   </h3>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-6" noValidate>
+                <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     {/* Name */}
                     <div>
@@ -250,15 +250,17 @@ export function ContactForm() {
                   {form.visitorsOptions.length > 0 && (
                     <div>
                       <label htmlFor="contact-visitors" className="block text-sm text-white/80 mb-2">
-                        {form.visitorsLabel}
+                        {form.visitorsLabel} <span className="text-gold-500">*</span>
                       </label>
                       <select
                         id="contact-visitors"
                         name="visitors"
                         value={formData.visitors}
                         onChange={handleChange}
+                        required
                         className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-sm text-white focus:outline-none focus:border-gold-500 transition-colors"
                       >
+                        <option value="" disabled className="bg-wine-800">Select a service type</option>
                         {form.visitorsOptions.map((option) => (
                           <option key={option} value={option} className="bg-wine-800">{option}</option>
                         ))}

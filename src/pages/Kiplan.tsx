@@ -1,5 +1,6 @@
 import { ArrowRight, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useSEO } from '../hooks/useSEO';
 
 interface DestinationCardProps {
   title: string;
@@ -33,6 +34,11 @@ function DestinationCard({ title, description, linkLabel, href, external }: Dest
 }
 
 export function Kiplan() {
+  useSEO({
+    title: 'The KIPLAN Ecosystem — KIPLANScholar, KIPLANLaw & KIPLANNotary',
+    description: 'KIPLAN brings together KIPLANScholar, KIPLANLaw and KIPLANNotary — initiatives focused on knowledge, legal services, notarial services and contribution to the community.',
+  });
+
   return (
     <section className="section-padding pt-40 md:pt-48 pb-20 md:pb-28 relative overflow-hidden">
       <div className="container-custom relative">

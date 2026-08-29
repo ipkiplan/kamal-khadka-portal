@@ -1,3 +1,5 @@
+import { useSEO } from '../hooks/useSEO';
+
 interface LegalSection {
   title: string;
   body: React.ReactNode;
@@ -13,6 +15,10 @@ function LegalCard({ title, body }: LegalSection) {
 }
 
 export function PrivacyPolicy() {
+  useSEO({
+    title: 'Privacy Policy | Kamal Khadka',
+    description: "This Privacy Policy explains what information Kamal Khadka's professional portal collects and how it is used.",
+  });
   const sections: LegalSection[] = [
     {
       title: '1. About This Website',
