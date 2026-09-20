@@ -767,11 +767,11 @@ export const footerConfig: FooterConfig = {
     { icon: "Mail", text: "kbkamal@gmail.com" },
   ],
   ecosystemLinks: [
-    { name: "KIPLAN", href: "/kiplan", external: false },
-    { name: "KIPLANScholar", href: "https://kiplanscholar.com/", external: true },
-    { name: "KIPLANLaw", href: "https://kiplan.com.np/", external: true },
-    { name: "KIPLANNotary", href: "/kiplan/kiplannotary", external: false },
-  ],
+  { name: "KIPLAN", href: "/kiplan", external: false },
+  { name: "KIPLANScholar", href: "https://kiplanscholar.com/", external: true },
+  { name: "KIPLANLaw", href: "https://kiplan.com.np/", external: true },
+  { name: "KIPLANNotary", href: "https://kiplannotary.vercel.app", external: true },
+],
   copyrightText: "© 2024 Kamal Khadka. All rights reserved.",
   legalLinks: [
     { name: "Privacy Policy", href: "/privacy-policy" },
