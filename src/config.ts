@@ -777,7 +777,7 @@ export const footerConfig: FooterConfig = {
   },
   {
     name: "KIPLAN Law",
-    href: "https://kiplan.com.np/",
+    href: "https://kiplanlaw.vercel.app/",
     external: true,
     description:
       "Law is part of everyday life, protecting property, rights, security, liberty, business and family interests. Visit KIPLAN Law to learn more about legal services and the role of law in our lives.",
