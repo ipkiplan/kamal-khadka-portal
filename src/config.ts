@@ -679,10 +679,11 @@ export interface FooterContactItem {
   text: string;
 }
 
-export interface EcosystemLink {
+interface EcosystemLink {
   name: string;
   href: string;
   external: boolean;
+  description: string;
 }
 
 export interface LegalLink {
@@ -767,10 +768,27 @@ export const footerConfig: FooterConfig = {
     { icon: "Mail", text: "kbkamal@gmail.com" },
   ],
   ecosystemLinks: [
-  { name: "KIPLAN", href: "/kiplan", external: false },
-  { name: "KIPLANScholar", href: "https://kiplanscholar.com/", external: true },
-  { name: "KIPLANLaw", href: "https://kiplan.com.np/", external: true },
-  { name: "KIPLANNotary", href: "https://kiplannotary.vercel.app", external: true },
+  {
+    name: "KIPLAN Scholar",
+    href: "https://kiplanscholar.com/",
+    external: true,
+    description:
+      "Created for students, researchers and entrepreneurs seeking opportunities beyond borders. Explore scholarships, fellowships and grants from around the world—because an opportunity discovered today may become a turning point in your life.",
+  },
+  {
+    name: "KIPLAN Law",
+    href: "https://kiplan.com.np/",
+    external: true,
+    description:
+      "Law is part of everyday life, protecting property, rights, security, liberty, business and family interests. Visit KIPLAN Law to learn more about legal services and the role of law in our lives.",
+  },
+  {
+    name: "KIPLAN Notary",
+    href: "https://kiplannotary.vercel.app",
+    external: true,
+    description:
+      "Notarial services are an important part of modern personal, educational, business and international transactions. Visit KIPLAN Notary to learn more about document certification, attestation and translation.",
+  },
 ],
   copyrightText: "© 2024 Kamal Khadka. All rights reserved.",
   legalLinks: [
