@@ -710,12 +710,33 @@ export const footerConfig: FooterConfig = {
   brandName: "Kamal Khadka",
   tagline: "Legal Excellence Since 1993",
   description: "Advocate, Notary Public and AI Practitioner",
+
   socialLinks: [
-    { icon: "Facebook", label: "Facebook", href: "#" },
-    { icon: "Twitter", label: "Twitter", href: "#" },
-    { icon: "Youtube", label: "YouTube", href: "#" },
-    { icon: "Linkedin", label: "LinkedIn", href: "#" },
-    { icon: "Instagram", label: "Instagram", href: "#" },
+    {
+  icon: "Facebook",
+  label: "Facebook",
+  href: "https://www.facebook.com/kbkamalfb/",
+},
+    {
+      icon: "Twitter",
+      label: "Twitter",
+      href: "YOUR_TWITTER_PROFILE_URL",
+    },
+    {
+      icon: "Youtube",
+      label: "YouTube",
+      href: "YOUR_YOUTUBE_CHANNEL_URL",
+    },
+    {
+      icon: "Linkedin",
+      label: "LinkedIn",
+      href: "https://np.linkedin.com/in/kamal-khadka-6465b19",
+    },
+    {
+      icon: "Instagram",
+      label: "Instagram",
+      href: "YOUR_INSTAGRAM_PROFILE_URL",
+    },
   ],
   linkGroups: [
     {
