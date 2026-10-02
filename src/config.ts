@@ -789,6 +789,13 @@ export const footerConfig: FooterConfig = {
     description:
       "Notarial services are an important part of modern personal, educational, business and international transactions. Visit KIPLAN Notary to learn more about document certification, attestation and translation.",
   },
+    {
+    name: "KIPLAN IP",
+    href: "https://kiplanip.vercel.app/",
+    external: true,
+    description:
+      "KIPLAN IP is dedicated to intellectual property, helping individuals, businesses and innovators understand, protect and manage their intellectual property rights in an increasingly knowledge-driven world.",
+  },
 ],
   copyrightText: "© 2024 Kamal Khadka. All rights reserved.",
   legalLinks: [
