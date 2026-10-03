@@ -363,7 +363,7 @@ export const museumConfig: MuseumConfig = {
       id: "credentials",
       name: "Credentials",
       icon: "Award",
-      image: "/images/journey-portrait.png",
+      image: "/images/journey-portrait.jpg",
       content: {
         title: "Professional Licenses & Certifications",
         description: "Advocate License No. 4039/1993 (eligible for practice in all Nepali courts including Supreme Court). Notary Public License No. 170/2007 (authorized for translations, attestations, and certifications). Completed Arbitrator course in April 2024.",
@@ -374,7 +374,7 @@ export const museumConfig: MuseumConfig = {
       id: "education",
       name: "Education",
       icon: "BookOpen",
-      image: "/images/journey-portrait.png",
+      image: "/images/journey-portrait.jpg",
       content: {
         title: "Academic Excellence",
         description: "LLM from National College, Lalitpur (2019-2022). MA in Human Resource Management from University of Canberra, Australia (2008-2009). LL.B. from Tribhuvan University, Kathmandu (1989-1992).",
@@ -385,7 +385,7 @@ export const museumConfig: MuseumConfig = {
       id: "experience",
       name: "Experience",
       icon: "History",
-      image: "/images/journey-portrait.png",
+      image: "/images/journey-portrait.jpg",
       content: {
         title: "Three Decades of Expertise",
         description: "Managing Director at KIPLAN since August 2014. Previously held HR advisory roles at Liverpool Associates in Tropical Health (LATH) and United Mission to Nepal (UMN), facilitating strategic HR plans and workforce projections.",
@@ -404,7 +404,7 @@ export const museumConfig: MuseumConfig = {
     attribution: "Kamal Khadka",
   },
   founderPhotoAlt: "Kamal Khadka - Advocate and Notary Public",
-  founderPhoto: "/images/journey-portrait.png",
+  founderPhoto: "/images/journey-portrait.jpg",
 };
 
 // -----------------------------------------------------------------------------

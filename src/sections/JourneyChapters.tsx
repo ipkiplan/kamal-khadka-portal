@@ -34,7 +34,7 @@ function ChapterCard({
         </div>
       </div>
 
-      <div className="mt-5 text-white/70 text-[15px] leading-relaxed space-y-4">
+      <div className="mt-5 text-white/70 text-[15px] leading-relaxed space-y-4 text-justify">
         <p>{preview}</p>
 
         {expanded && (
@@ -68,10 +68,14 @@ function ChapterCard({
   );
 
   const imageColumn = hasImages && (
-    <div className="flex flex-col h-full min-h-[280px] lg:min-h-0 gap-3">
-      <div className="flex-1 overflow-hidden rounded-lg border border-white/10 shadow-lg min-h-0">
-        <img src={primaryImage.src} alt={primaryImage.alt} className="w-full h-full object-cover" />
-      </div>
+    <div className="flex flex-col h-full">
+  <div className="flex-1 overflow-hidden rounded-lg border border-white/10 shadow-lg min-h-0">
+    <img
+      src={primaryImage.src}
+      alt={primaryImage.alt}
+      className="w-full h-full object-cover"
+    />
+  </div>
       {supportingImages.length > 0 && (
         <div className="grid grid-cols-2 gap-3 h-24 sm:h-28 shrink-0">
           {supportingImages.map((img, i) => (
@@ -90,8 +94,9 @@ function ChapterCard({
       style={{ transitionDelay: `${Math.min(index * 0.04, 0.3)}s` }}
     >
       {hasImages ? (
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-stretch">
-          <div className={`lg:col-span-5 ${imageSide === 'left' ? 'order-1 lg:order-1' : 'order-1 lg:order-2'}`}>
+       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-stretch">
+          <div className={`lg:col-span-4
+             ${imageSide === 'left' ? 'order-1 lg:order-1' : 'order-1 lg:order-2'}`}>
             {imageColumn}
           </div>
           <div className={`lg:col-span-7 ${imageSide === 'left' ? 'order-2 lg:order-2' : 'order-2 lg:order-1'}`}>
