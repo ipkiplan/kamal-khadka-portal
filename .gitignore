@@ -3,3 +3,8 @@ dist/
 .env
 .env.local
 .env.*.local
+
+# Local image backups and optimization tests
+image-original-backup/
+optimized-test/
+optimized-test-2/
